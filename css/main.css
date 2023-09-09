@@ -1,0 +1,69 @@
+#intro{}
+/* //intro */
+
+#about{}
+/* //about */
+
+#skill{}
+#skill h2{}
+.skillList{
+  height: calc(100vh - calc(100px * 2 + var(--h5) + var(--h3)));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--h5);
+}
+.skillList li{
+  height: 100%;
+  padding: var(--h5);
+  position: relative;
+  border-radius: var(--h5);
+}
+.skillList li:nth-child(1){
+  background-color: #E34F26;
+}
+.skillList li:nth-child(2){
+  background-color: #1572B6;
+}
+.skillList li:nth-child(3){
+  background-color: #F7DF1E;
+}
+.skillList li:nth-child(4){
+  background-color: #FF9A00;
+}
+.skillList li:nth-child(5){
+  background-color: #31A8FF;
+}
+.skillList li:nth-child(6){
+  background-color: #F24E1E;
+}
+.skillList li h4{}
+.skillList li .iconWrap{
+  width: var(--h3);
+  height: var(--h3);
+}
+.skillList li .iconWrap .icon{
+  width: inherit;
+  position: absolute;
+  top: var(--h5);
+  right: var(--h5);
+}
+.skillList li .desc{}
+.skillList li .gaugeWrap{}
+.skillList li .gaugeWrap .gaugeBar{
+  display: block;
+  width: 100%;
+  height: 7px;
+  border-radius: 5px;
+  background-color: #000;
+}
+.skillList li .gaugeWrap p{}
+/* //skill */
+
+#mainProject{}
+/* //mainProject */
+
+#miniProject{}
+/* //miniProject */
+
+#contact{}
+/* //contact */
