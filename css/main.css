@@ -1,69 +1,298 @@
+/* common */
+.skillList,
+.swiperWrap,
+#miniProject .miniWrap{
+  height: calc(100vh - calc(100px * 2 + var(--h5) + var(--h3)));
+}
+.skillList li,
+#miniProject .miniWrap li,
+#contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.badge{
+  margin-right: 0.2rem;
+  padding: 0.3rem 0.8rem 0.2rem;
+  display: inline-block;
+  border: 1px solid var(--textColor);
+  border-radius: 2rem;
+}
+.moreView{
+  opacity: 0;
+}
+.moreView p{}
+.moreView .moreBtn{
+  width: var(--h3);
+  height: var(--h3);
+  margin: 0.5rem auto 0;
+  display: block;
+}
+.mainSwiper .mainSwiperWrap .mainSlide,
+#miniProject .miniWrap li a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--h4);
+  overflow: hidden;
+}
+.mainSlide::before,
+#miniProject .miniWrap li a::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+}
+.skillList li,
+.skillList li .desc,
+.mainSlide::before,
+.moreView,
+#miniProject .miniWrap li a::before{
+  transition: .3s;
+}
+
+/* intro */
 #intro{}
-/* //intro */
 
+/* about */
 #about{}
-/* //about */
 
+/* skill */
 #skill{}
 #skill h2{}
 .skillList{
-  height: calc(100vh - calc(100px * 2 + var(--h5) + var(--h3)));
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--h5);
 }
 .skillList li{
-  height: 100%;
+  height: 312px;
   padding: var(--h5);
   position: relative;
   border-radius: var(--h5);
-}
-.skillList li:nth-child(1){
-  background-color: #E34F26;
-}
-.skillList li:nth-child(2){
-  background-color: #1572B6;
-}
-.skillList li:nth-child(3){
-  background-color: #F7DF1E;
-}
-.skillList li:nth-child(4){
-  background-color: #FF9A00;
-}
-.skillList li:nth-child(5){
-  background-color: #31A8FF;
-}
-.skillList li:nth-child(6){
-  background-color: #F24E1E;
+  border: 1px solid var(--textColor);
 }
 .skillList li h4{}
 .skillList li .iconWrap{
   width: var(--h3);
   height: var(--h3);
-}
-.skillList li .iconWrap .icon{
-  width: inherit;
   position: absolute;
   top: var(--h5);
   right: var(--h5);
 }
-.skillList li .desc{}
+.skillList li .iconWrap .icon{
+  width: inherit;
+  filter: invert(1);
+}
+.skillList li .desc{
+  border: 1px solid #000;
+  height: 0;
+  margin: auto 0 1rem;
+  overflow: hidden;
+}
 .skillList li .gaugeWrap{}
 .skillList li .gaugeWrap .gaugeBar{
-  display: block;
   width: 100%;
   height: 7px;
+  display: block;
+  margin-bottom: 0.5rem;
   border-radius: 5px;
-  background-color: #000;
+  background-color: var(--textColor);
 }
 .skillList li .gaugeWrap p{}
-/* //skill */
 
-#mainProject{}
-/* //mainProject */
+/* mainProject */
+#mainProject{
+  padding: 100px 0 100px 45px;
+}
+#mainProject h2{}
+.swiperWrap{
+  width: 100%;
+  display: flex;
+  gap: 60px;
+}
+.swiperWrap .mainDescSwiper{
+  display: flex;
+  align-items: end;
+  padding-bottom: calc(var(--h1) + 2.25rem);
+}
+.mainDescSwiper .mainDescSwiperWrap{
+  width: 450px;
+  height: fit-content;
+  margin-bottom: 2rem;
+}
+.mainDescSwiper .mainDescSwiperWrap .mainDescSlide{}
+.mainDescSlide .tag{
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.mainDescSlide p{
+  margin-bottom: 1rem;
+}
+.mainDescSlide .badge{}
+.swiperWrap .mainDescSwiper .mainController{
+  width: 100%;
+  height: calc(var(--h1) + 2.25rem);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.mainController .mainPagination{
+  height: fit-content;
+  text-align: left;
+  top: 0;
+  margin-bottom: 1rem;
+}
+.mainController .mainSwiperBtn{
+  width: var(--h1);
+  height: var(--h1);
+  top: auto;
+  bottom: 0;
+  border: 1px solid #fff;
+  border-radius: 100%;
+}
+.mainController .mainSwiperBtn:after{
+  content: '';
+  width: var(--h3);
+  height: var(--h3);
+  background: url(../img/arrowLeftToRight.svg) no-repeat;
+  background-size: cover;  
+}
+.mainController .mainSwiperBtn#mainNextBtn{
+  left: calc(var(--h1) + 1rem);
+}
+.mainController .swiper-button-prev.mainSwiperBtn{
+  left: 0;
+  transform: rotate(-180deg);
+}
+.mainSwiper .mainSwiperWrap{
+  width: 895px;
+}
+.mainSwiper .mainSwiperWrap .mainSlide{
+  width: 75%;
+  cursor: pointer;
+}
+.mainSwiper .mainSwiperWrap .mainSlide:nth-child(1){
+  background: url(https://images.unsplash.com/photo-1669023414166-a4cc7c0fe1f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.mainSwiper .mainSwiperWrap .mainSlide:nth-child(2){
+  background: url(https://images.unsplash.com/photo-1669023414166-a4cc7c0fe1f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.mainSwiper .mainSwiperWrap .mainSlide:nth-child(3){
+  background: url(https://images.unsplash.com/photo-1669023414166-a4cc7c0fe1f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
+/* miniProject */
 #miniProject{}
-/* //miniProject */
+#miniProject h2{}
+#miniProject .miniWrap{
+  display: flex;
+  gap: 45px;
+}
+#miniProject .miniWrap li{
+  width: calc(100% / 3);
+}
+#miniProject .miniWrap li a{
+  width: 100%;
+  height: 55%;
+  border: 1px solid #000;
+  position: relative;
+}
+#miniProject .miniWrap li .desc{
+  border: 1px solid #000;
+}
+#miniProject .miniWrap li .desc span{}
+#miniProject .miniWrap li .desc h4{}
+#miniProject .miniWrap li .desc p{}
+#miniProject .miniWrap li .desc p,
+#miniProject .miniWrap li .desc .badgeWrap{
+  margin-top: 1rem;
+}
 
-#contact{}
-/* //contact */
+/* contact */
+#contact{
+  padding: 100px 45px 2rem;
+  justify-content: flex-end;
+}
+#contact > h2{}
+.contactWrap{
+  margin: 180px 0 auto;
+}
+.contactWrap h2{
+  text-align: center;
+  margin-bottom: var(--h1);
+}
+.contactWrap .linkWrap{
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.contactWrap .linkWrap a{
+  padding: 0.8rem 1rem 0.6rem;
+  border: 3px solid var(--textColor);
+  border-radius: var(--h2);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.contactWrap .linkWrap a h4{}
+.contactWrap .linkWrap a .iconWrap{
+  width: var(--h2);
+  height: var(--h2);
+  transform: rotate(-45deg);
+}
+.contactWrap .linkWrap a .iconWrap img{}
+#contact .copyright{
+  text-align: right;
+}
+
+/* hover style */
+@media (hover:hover){
+  .skillList li:nth-child(1):hover{
+    background-color: #E34F26;
+    border: 1px solid #E34F26;
+  }
+  .skillList li:nth-child(2):hover{
+    background-color: #1572B6;
+    border: 1px solid #1572B6;
+  }
+  .skillList li:nth-child(3):hover{
+    background-color: #F7DF1E;
+    border: 1px solid #F7DF1E;
+  }
+  .skillList li:nth-child(4):hover{
+    background-color: #FF9A00;
+    border: 1px solid #FF9A00;
+  }
+  .skillList li:nth-child(5):hover{
+    background-color: #31A8FF;
+    border: 1px solid #31A8FF;
+  }
+  .skillList li:nth-child(6):hover{
+    background-color: #F24E1E;
+    border: 1px solid #F24E1E;
+  }
+  .skillList li:hover .desc{
+    height: 120px;
+    margin: auto 0 1rem;
+  }
+  .mainSlide:hover::before,
+  .mainSlide:hover .moreView,
+  #miniProject .miniWrap li a:hover::before,
+  .miniWrap li a:hover .moreView{
+    opacity: 1;
+  }
+}

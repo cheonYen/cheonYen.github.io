@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cheonYen's portfolio</title>
+  <title>CheonYen's Portfolio</title>
+  <!-- [CDN] -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <!-- [CSS] -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
   <link rel="stylesheet" href="css/reset_common.css"/>
@@ -33,12 +35,12 @@
       </section>
       <!-- //intro -->
       
-      <section id="about" class="section" data-bgColor="#593b22">
+      <section id="about" class="section" data-bgColor="#FFC133">
         <h2>About</h2>
       </section>
       <!-- //about -->
 
-      <section id="skill" class="section" data-bgColor="#222">
+      <section id="skill" class="section" data-bgColor="#6C6C6C" data-textColor="#fff">
         <h2>Skill</h2>
         <ul class="skillList">
           <li>
@@ -111,28 +113,155 @@
       </section>
       <!-- //skill -->
 
-      <section id="mainProject" class="section" data-bgColor="#243859">
+      <section id="mainProject" class="section" data-bgColor="#222">
         <h2>Main Project</h2>
+        <div class="swiperWrap">
+          <div class="swiper mySwiper mainDescSwiper">
+            <div class="swiper-wrapper mainDescSwiperWrap">
+              <div class="swiper-slide mainDescSlide">
+                <span class="tag">프로젝트</span>
+                <p>서대문구 충현동 주민센터 리뉴얼</p>
+                <span class="tag">구분</span>
+                <p>개인 프로젝트</p>
+                <span class="tag">스택</span>
+                <p>
+                  <span class="badge">Figma</span>
+                  <span class="badge">VS Code</span>
+                </p>
+                <span class="tag">작업 기간</span>
+                <p>2023/05/01 ~ 2023/06/07</p>
+                <span class="tag">소개</span>
+                <p>
+                  무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지.
+                </p>
+              </div>
+              <div class="swiper-slide mainDescSlide">Slide 2</div>
+              <div class="swiper-slide mainDescSlide">Slide 3</div>
+            </div> 
+            <div class="mainController">
+              <div class="swiper-pagination mainPagination"></div>
+              <div class="swiper-button-next mainSwiperBtn" id="mainNextBtn"></div>
+              <div class="swiper-button-prev mainSwiperBtn" id="mainPrevrBtn"></div> 
+            </div>
+          </div>
+          <div class="swiper mySwiper mainSwiper">
+            <div class="swiper-wrapper mainSwiperWrap">
+              <div class="swiper-slide mainSlide">
+                <div class="moreView">
+                  <p>자세히 보기</p>
+                  <span class="moreBtn">
+                    <img src="img/arrowLeftToRight.svg" alt="Arrow Left to Right">
+                  </span>
+                </div>
+              </div>
+              <div class="swiper-slide mainSlide">
+                <div class="moreView"> 
+                  <p>자세히 보기</p>
+                  <span class="moreBtn">
+                    <img src="img/arrowLeftToRight.svg" alt="Arrow Left to Right">
+                  </span>
+                </div>
+              </div>
+              <div class="swiper-slide mainSlide">
+                <div class="moreView">
+                  <p>자세히 보기</p>
+                  <span class="moreBtn">
+                    <img src="img/arrowLeftToRight.svg" alt="Arrow Left to Right">
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- //mainProject -->
 
-      <section id="miniProject" class="section" data-bgColor="#3f2459">
+      <section id="miniProject" class="section" data-bgColor="#BAD0D9">
         <h2>Mini Project</h2>
+        <ul class="miniWrap">
+          <li>
+            <a href="#none">
+              <div class="moreView">
+                <p>자세히 보기</p>
+                <span class="moreBtn">
+                  <img src="img/arrowLeftToRight.svg" alt="Arrow Left to Right">
+                </span>
+              </div>
+            </a>
+            <div class="desc">
+              <span>개인 프로젝트</span>
+              <h4>미니 프로젝트명</h4>
+              <p>2023/05/01 ~ 2023/06/07</p>
+              <p>
+                무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지.
+              </p>
+              <div class="badgeWrap">
+                <span class="badge">Figma</span>
+                <span class="badge">VS Code</span>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a href="#none">
+              <div class="moreView">
+                <p>자세히 보기</p>
+                <span class="moreBtn">
+                  <img src="img/arrowLeftToRight.svg" alt="Arrow Left to Right">
+                </span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#none">
+              <div class="moreView">
+                <p>자세히 보기</p>
+                <span class="moreBtn">
+                  <img src="img/arrowLeftToRight.svg" alt="Arrow Left to Right">
+                </span>
+              </div>
+            </a>
+          </li>
+        </ul>
       </section>
       <!-- //miniProject -->
 
-      <section id="contact" class="section" data-bgColor="#59243c">
-        <h2>Contact</h2>
-        <p>&copy; 2023 Cheon Yeeun All Rights Reserved.</p>
+      <section id="contact" class="section" data-bgColor="#0074dd">
+        <h2>
+          Contact 
+        </h2>
+        <div class="contactWrap">
+          <h2>
+            마무리 멘트 적습니다. 마무리 멘트 적습니다.<br/> 
+            마무리 멘트 적습니다. 
+          </h2>
+          <div class="linkWrap">
+            <a href="#none">
+              <h4>주소</h4>
+              <div class="iconWrap">
+                <img src="img/arrowLeftToRight.svg" alt="">
+              </div>
+            </a>
+            <a href="#none">
+              <h4>주소</h4>
+              <div class="iconWrap">
+                <img src="img/arrowLeftToRight.svg" alt="">
+              </div>
+            </a>
+          </div>
+        </div>
+        <p class="copyright">&copy; 2023 Cheon Yeeun All Rights Reserved.</p>
       </section>
       <!-- //contact -->
     </main>
   </div>
 
-  <!-- [JS] -->
+  <!-- [CDN] -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollToPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <!-- [JS] -->
   <script src="js/gsap_custom.js"></script>
+  <script src="js/swiper_custom.js"></script>
 </body>
 </html>

@@ -1,57 +1,64 @@
-let bg = gsap.timeline({
-  scrollTrigger: {
-    start: 0,
-    end: "max",
-    scrub: true
-  }
-});
-
-gsap.utils.toArray(".section").forEach((item) => {
-  let bgColor = item.getAttribute("data-bgColor");
+gsap.utils.toArray(".section").forEach((item, index) => {
+  let bgColor = item.getAttribute("data-bgColor"),
+      textColor = index === 0 ? "#000" : "#fff",
+      invertFilter = index === 0 ? "invert(0)" : "invert(1)";
 
   ScrollTrigger.create({
-      trigger: item,
-      start: "top 50%",
-      end: "bottom 50%",
-      //markers: true, //가이드 라인 표시 여부
+    trigger: item,
+    start: "top 50%",
+    end: "bottom 50%",
+    //markers: true, //가이드 라인 표시 여부
 
-      onEnter: () => gsap.to("body", {
-          backgroundColor: bgColor,
-          duration: 0.5
-      }),
-      onEnterBack: () => gsap.to("body", {
-          backgroundColor: bgColor,
-          duration: 0.5
-      }),
+    onEnter: () => {
+      gsap.to("body", {
+        backgroundColor: bgColor,
+        "--textColor": textColor,
+        duration: 0.5
+      });
+      gsap.to(".socialBtn i", {
+        filter: invertFilter,
+        duration: 0.5,
+      });
+    },
+    onEnterBack: () => {
+      gsap.to("body", {
+        backgroundColor: bgColor,
+        "--textColor": textColor,
+        duration: 0.5
+      });
+      gsap.to(".socialBtn i", {
+        filter: invertFilter,
+        duration: 0.5,
+      });
+    },
   });
 });
 
 let links = gsap.utils.toArray(".header nav .gnb li a");
 
 links.forEach(link => {
-    let element = document.querySelector(link.getAttribute("href")),
-    
-    linkST = ScrollTrigger.create({
+  let element = document.querySelector(link.getAttribute("href")),  
+      linkST = ScrollTrigger.create({
         trigger: element,
         start: "top top"
-    });
+      });
 
-    ScrollTrigger.create({
-        trigger: element,
-        start: "top center",
-        end: "bottom center",
-        onToggle: self => setActive(link)
-    });
+  ScrollTrigger.create({
+    trigger: element,
+    start: "top center",
+    end: "bottom center",
+    onToggle: self => setActive(link)
+  });
 
-    link.addEventListener("click", e => {
-        e.preventDefault();
-        gsap.to(window, {duration: 0.5, scrollTo: linkST.start, overwrite: "auto"});
-    });
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    gsap.to(window, {duration: 0.5, scrollTo: linkST.start, overwrite: "auto"});
+  });
 });
 
 function setActive(link) {
-    links.forEach(el => el.classList.remove("active"));
-    link.classList.add("active");
+  links.forEach(el => el.classList.remove("active"));
+  link.classList.add("active");
 }
 
 
