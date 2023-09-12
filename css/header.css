@@ -17,7 +17,12 @@
   left: 0;
 }
 .header h1{}
-.header h1 .logo{}
+.header h1 .logo{
+  display: flex;
+  width: var(--h2);
+  height: var(--h2);
+  margin-bottom: 3rem;
+}
 .header h1 .logo img{}
 .header nav{
   margin: 0 0 auto;
@@ -26,16 +31,17 @@
 .header nav .gnb li{}
 .header nav .gnb li h2{}
 .header nav .gnb li a{
-  display: inline-block;
   margin-bottom: 1rem;
+  display: inline-block;
   position: relative;
+  text-transform: uppercase;
 }
 .header nav .gnb li a::before{
   content: '';
   width: 0;
   height: 2px;
   position: absolute;
-  bottom: 0.2rem;
+  top: calc(100% + 0.2rem);
   left: -0.15rem;
   background-color: var(--textColor);
   z-index: -1;
@@ -50,9 +56,34 @@
 }
 .socialBtn i{}
 .header p{}
+.trigger{
+  width: var(--h3);
+  height: var(--h3);
+  position: relative;
+}
+.trigger span{
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  background-color: var(--textColor);
+}
+.trigger span:nth-child(1){}
+.trigger span:nth-child(2){}
+.trigger span:nth-child(3){}
 
 @media (hover:hover){
   .header nav .gnb li a:hover:before{
     width: calc(100% + 0.3rem);
+  }
+}
+
+@media (max-width: 768px){
+  .header{
+    width: 100%;
+    height: 80px;
+    border: 1px solid #000;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 var(--h4);
   }
 }

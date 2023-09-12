@@ -4,6 +4,9 @@
 #miniProject .miniWrap{
   height: calc(100vh - calc(100px * 2 + var(--h5) + var(--h3)));
 }
+.heading{
+  text-transform: uppercase;
+}
 .skillList li,
 #miniProject .miniWrap li,
 #contact{

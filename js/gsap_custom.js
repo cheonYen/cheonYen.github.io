@@ -12,22 +12,28 @@ gsap.utils.toArray(".section").forEach((item, index) => {
     onEnter: () => {
       gsap.to("body", {
         backgroundColor: bgColor,
-        "--textColor": textColor,
         duration: 0.5
       });
-      gsap.to(".socialBtn i", {
+      gsap.to(".header h1 .logo, .socialBtn i", {
         filter: invertFilter,
+        onUpdate: () => {
+          // onUpdate 콜백 내에서 CSS 변수를 설정
+          document.documentElement.style.setProperty("--textColor", textColor);
+        },
         duration: 0.5,
       });
     },
     onEnterBack: () => {
       gsap.to("body", {
         backgroundColor: bgColor,
-        "--textColor": textColor,
         duration: 0.5
       });
-      gsap.to(".socialBtn i", {
+      gsap.to(".header h1 .logo, .socialBtn i", {
         filter: invertFilter,
+        onUpdate: () => {
+          // onUpdate 콜백 내에서 CSS 변수를 설정
+          document.documentElement.style.setProperty("--textColor", textColor);
+        },
         duration: 0.5,
       });
     },

@@ -1,3 +1,10 @@
+/* [font] 'Oswald' */
+@import url('https://webfontworld.github.io/Oswald/Oswald.css');
+/* [font] 'Poppins' */
+@import url('https://webfontworld.github.io/Poppins/Poppins.css');
+/* [font] 'Pretendard' */
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
+
 :root{
   /* size */
   font-size: 16px;
@@ -19,6 +26,7 @@
 }
 body{
   color: var(--textColor);
+  font-family: 'Oswald', 'Pretendard', sans-serif;
 }
 ul{
   list-style: none;
@@ -34,7 +42,8 @@ h4,
 h5, 
 h6{
   font-size: inherit;
-  font-weight: 800;
+  font-weight: 600;
+  line-height: 100%;
 }
 button{
   font-family: inherit;
@@ -51,26 +60,37 @@ img{
 h1, 
 .h1{
   font-size: var(--h1);
+  letter-spacing: -1.5px;
 }
 h2, 
 .h2{
   font-size: var(--h2);
+  letter-spacing: -1.26px;
 }
 h3, 
 .h3{
   font-size: var(--h3);
+  letter-spacing: -0.9px;
 }
 h4, 
 .h4{
   font-size: var(--h4);
+  letter-spacing: -0.75px;
 }
 h5, 
 .h5{
   font-size: var(--h5);
+  letter-spacing: -0.6px;
 }
 h6, 
 .h6{
   font-size: var(--h6);
+  letter-spacing: -0.27px;
+}
+p{
+  font-weight: 400;
+  line-height: 175%;
+  letter-spacing: 0.24px;
 }
 .main{}
 section{
