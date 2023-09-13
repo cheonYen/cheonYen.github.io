@@ -53,7 +53,9 @@
 .skillList li .desc,
 .mainSlide::before,
 .moreView,
-#miniProject .miniWrap li a::before{
+#miniProject .miniWrap li a::before,
+.contactWrap .linkWrap a,
+.contactWrap .linkWrap a .iconWrap img{
   transition: .3s;
 }
 
@@ -301,15 +303,19 @@
 .contactWrap .linkWrap a .iconWrap{
   width: var(--h2);
   height: var(--h2);
-  transform: rotate(-45deg);
+  overflow: hidden;
 }
-.contactWrap .linkWrap a .iconWrap img{}
+.contactWrap .linkWrap a .iconWrap img{
+  width: 200%;
+  transform: translateX(-2.625rem);
+}
 #contact .copyright{
   text-align: right;
 }
 
 /* hover style */
 @media (hover:hover){
+  /* skill */
   .skillList li:nth-child(1):hover{
     background-color: #E34F26;
     border: 1px solid #E34F26;
@@ -344,6 +350,15 @@
   .miniWrap li a:hover .moreView{
     opacity: 1;
   }
+
+  /* contact */
+  .contactWrap .linkWrap a:hover{
+    color: #0074dd;
+    background-color: var(--textColor);
+  }
+  .contactWrap .linkWrap a:hover .iconWrap img{
+    transform: translate(0, -2.625rem);
+  }
 }
 
 /* mobile */
@@ -356,9 +371,10 @@
   /* skill */
   .skillList{
     grid-template-columns: repeat(1, 1fr);
+    height: calc(100vh - calc(100px * 2 + var(--h4) + var(--h2)));
   }
   .skillList li{
-    height: fit-content;
+    height: 100%;
   }
   .skillList li .desc{
     margin: 1.5rem 0 0.5rem;
@@ -393,6 +409,26 @@
     border: 1px solid #F24E1E;
   }
 
+  /* miniProject */
+  #miniProject .miniWrap{
+    flex-wrap: wrap;
+    gap: var(--h2);
+  }
+  #miniProject .miniWrap li{
+    width: calc(50% - var(--h2) / 2);
+    justify-content: flex-start;
+  }
+  #miniProject .miniWrap li a{
+    margin-bottom: var(--h4);
+  }
+  #miniProject .miniWrap li .desc{
+    text-align: center;
+  }
+  #miniProject .miniWrap li .desc p:not(.date),
+  #miniProject .miniWrap li .desc .badgeWrap{
+    display: none;
+  }
+
   /* contact */
   #contact{
     padding: calc(60px + var(--h4)) var(--h4) var(--h4);
@@ -420,6 +456,9 @@
     width: var(--h3);
     height: var(--h3);
   }
+  .contactWrap .linkWrap a .iconWrap img{
+    transform: translateX(-1.857rem);
+  }
   #contact .copyright{
     text-align: center;
   }
@@ -427,8 +466,11 @@
   /* hover style */
   @media (hover:hover){
     .skillList li:hover .desc{
-      height: fit-content ;
+      height: fit-content;
       margin: 1.5rem 0 1rem;
+    }
+    .contactWrap .linkWrap a:hover .iconWrap img{
+      transform: translate(0, -1.857rem);
     }
   }
 }
