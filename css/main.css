@@ -4,9 +4,6 @@
 #miniProject .miniWrap{
   height: calc(100vh - calc(100px * 2 + var(--h5) + var(--h3)));
 }
-.heading{
-  text-transform: uppercase;
-}
 .skillList li,
 #miniProject .miniWrap li,
 #contact{
@@ -61,7 +58,49 @@
 }
 
 /* intro */
-#intro{}
+#intro{
+  position: relative;
+  overflow: hidden;
+}
+#intro::after{
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(245, 243, 240, 0.3);
+  backdrop-filter: blur(50px); 
+  z-index: -1;
+}
+.introContentsWrap{
+  height: 50vh;
+}
+.introContentsWrap h3{}
+.bgElement1,
+.bgElement2,
+.bgElement3{
+  position: absolute;
+  border-radius: 49% 51% 70% 30% / 37% 58% 42% 63%;
+  z-index: -1;
+}
+.bgElement1{
+  width: 400px;
+  height: 400px;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  background-color: #1572B6;
+  animation: moving1 10s linear infinite;
+}
+.bgElement2{
+  width: 280px;
+  height: 280px;
+  right: 10%;
+  bottom: 0;
+  background-color: #bfff6b;
+  animation: moving2 10s linear infinite;
+}
 
 /* about */
 #about{}
@@ -81,7 +120,11 @@
   border-radius: var(--h5);
   border: 1px solid var(--textColor);
 }
-.skillList li h4{}
+.skillList li h4{
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  font-family: 'Oswald', 'Pretendard', sans-serif;
+}
 .skillList li .iconWrap{
   width: var(--h3);
   height: var(--h3);
@@ -236,6 +279,7 @@
 .contactWrap h2{
   text-align: center;
   margin-bottom: var(--h1);
+  line-height: 140%;
 }
 .contactWrap .linkWrap{
   display: flex;
@@ -251,7 +295,9 @@
   justify-content: space-between;
   align-items: center;
 }
-.contactWrap .linkWrap a h4{}
+.contactWrap .linkWrap a h4{
+  margin-bottom: 0.1rem;
+}
 .contactWrap .linkWrap a .iconWrap{
   width: var(--h2);
   height: var(--h2);
@@ -297,5 +343,92 @@
   #miniProject .miniWrap li a:hover::before,
   .miniWrap li a:hover .moreView{
     opacity: 1;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px){
+  /* intro */
+  #intro{
+    margin: 60px 0 0;
+  }
+
+  /* skill */
+  .skillList{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .skillList li{
+    height: fit-content;
+  }
+  .skillList li .desc{
+    margin: 1.5rem 0 0.5rem;
+  }
+  .skillList li h4 br,
+  .skillList li .gaugeWrap .gaugeBar,
+  .skillList li .gaugeWrap p{
+    display: none;
+  }
+  .skillList li:nth-child(1).open{
+    background-color: #E34F26;
+    border: 1px solid #E34F26;
+  }
+  .skillList li:nth-child(2).open{
+    background-color: #1572B6;
+    border: 1px solid #1572B6;
+  }
+  .skillList li:nth-child(3).open{
+    background-color: #F7DF1E;
+    border: 1px solid #F7DF1E;
+  }
+  .skillList li:nth-child(4).open{
+    background-color: #FF9A00;
+    border: 1px solid #FF9A00;
+  }
+  .skillList li:nth-child(5).open{
+    background-color: #31A8FF;
+    border: 1px solid #31A8FF;
+  }
+  .skillList li:nth-child(6).open{
+    background-color: #F24E1E;
+    border: 1px solid #F24E1E;
+  }
+
+  /* contact */
+  #contact{
+    padding: calc(60px + var(--h4)) var(--h4) var(--h4);
+  }
+  .contactWrap{
+    margin: 20vh 0 auto;
+  }
+  .contactWrap h2{
+    font-size: clamp(1.5rem, 5vw, var(--h2));
+  }
+  .contactWrap .linkWrap{
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .contactWrap .linkWrap a{
+    width: fit-content;
+    padding: 0.5rem 1rem 0.3rem;
+    border: 2px solid var(--textColor);
+  }
+  .contactWrap .linkWrap a h4{
+    font-size: var(--h5);
+  }
+  .contactWrap .linkWrap a .iconWrap{
+    width: var(--h3);
+    height: var(--h3);
+  }
+  #contact .copyright{
+    text-align: center;
+  }
+
+  /* hover style */
+  @media (hover:hover){
+    .skillList li:hover .desc{
+      height: fit-content ;
+      margin: 1.5rem 0 1rem;
+    }
   }
 }

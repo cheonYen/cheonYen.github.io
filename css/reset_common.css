@@ -16,6 +16,7 @@
   --h6: 1.125rem; /* 18px */
   /* color */
   --textColor: #000;
+  --backColor: #fff;
 }
 
 /* reset */
@@ -26,7 +27,7 @@
 }
 body{
   color: var(--textColor);
-  font-family: 'Oswald', 'Pretendard', sans-serif;
+  font-family: 'Pretendard', sans-serif;
 }
 ul{
   list-style: none;
@@ -102,4 +103,29 @@ section{
 }
 section h2{
   margin-bottom: var(--h3);
+}
+.header nav .gnb li a,
+.heading,
+.skillList li h4,
+#contact > h2{
+  font-family: 'Oswald', 'Pretendard', sans-serif;
+  text-transform: uppercase;
+}
+/* mobile */
+@media (max-width: 768px){
+  :root{
+    /* size */
+    font-size: 14px;
+    --h1: 2.429rem; /* 34px */
+    --h2: 2.143rem; /* 30px */
+    --h3: 1.857rem; /* 26px */
+    --h4: 1.571rem; /* 22px */
+    --h5: 1.286rem; /* 18px */
+    --h6: 1.143rem; /* 16px */
+  }
+  section{
+    max-width: 100%;
+    margin: 0;
+    padding: calc(60px + var(--h4)) var(--h4) var(--h4);
+  }
 }
