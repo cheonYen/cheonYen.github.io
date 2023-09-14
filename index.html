@@ -6,6 +6,9 @@
   <title>CheonYen's Portfolio</title>
   <!-- [CDN] -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- [FONT] -->
+  <link href="https://webfontworld.github.io/Oswald/Oswald.css" rel="stylesheet">
+  <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
   <!-- [CSS] -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
   <link rel="stylesheet" href="css/reset_common.css"/>
@@ -38,7 +41,10 @@
     <main class="main">
       <section id="intro" class="section" data-bgColor="#F5F3F0">
         <div class="heading">
-          <h2>CheonYen's Portfolio</h2>
+          <h2>CheonYen's <br/>Portfolio</h2>
+        </div>
+        <div class="iconWrap">
+          <img src="img/scrollDown.svg" alt="scroll down">
         </div>
         <div class="bgElement1"></div>
         <div class="bgElement2"></div>
@@ -51,7 +57,7 @@
         </div>
         <div class="contentsWrap">
           <div class="profileWrap">
-            <img src="" alt="">
+            <img src="https://mblogthumb-phinf.pstatic.net/MjAyMjA0MTdfMzQg/MDAxNjUwMTYwNzI4Mzky.p1SLNysNzNjEBn5e7nwHzUGjfLHLasFbycR2xlHgpskg.KTbZnxlmVoJT4ij4nNV06klvEj8SYR2ekUkQ8UvOVYYg.GIF.dagachihongdae/%EB%A7%9D%EA%B7%B8%EB%9F%AC%EC%A7%84%EA%B3%B02.gif?type=w800" alt="">
           </div>
           <div class="desc">
             <h3>안녕하세요! <br/>~~~한 천예은입니다.</h3>
@@ -60,13 +66,31 @@
             </p>
           </div>
         </div>
-        <ul class="record">
-          <li>
-            <p class="date">2000.00.00</p>
-            <h5>학교 졸업</h5>
-            <p>000학과 전공</p>
-          </li>
-        </ul>
+        <div class="recordWrap">
+          <h4>나의 발자취</h4>
+          <ul class="record">
+            <li>
+              <p class="date">2000.00.00</p>
+              <h6>학교 졸업</h6>
+              <p>000학과 전공</p>
+            </li>
+            <li>
+              <p class="date">2000.00.00</p>
+              <h6>학교 졸업</h6>
+              <p>000학과 전공</p>
+            </li>
+            <li>
+              <p class="date">2000.00.00</p>
+              <h6>학교 졸업</h6>
+              <p>000학과 전공</p>
+            </li>
+            <li>
+              <p class="date">2000.00.00</p>
+              <h6>학교 졸업</h6>
+              <p>000학과 전공</p>
+            </li>
+          </ul>
+        </div>
       </section>
       <!-- //about -->
       <section id="skill" class="section" data-bgColor="#595a5d">
@@ -293,6 +317,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollToPlugin.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <!-- [JS] -->
+  <script src="js/header.js"></script>
   <script src="js/gsap_custom.js"></script>
   <script src="js/swiper_custom.js"></script>
 </body>

@@ -1,11 +1,4 @@
-/* [font] 'Oswald' */
-@import url('https://webfontworld.github.io/Oswald/Oswald.css');
-/* [font] 'Poppins' */
-@import url('https://webfontworld.github.io/Poppins/Poppins.css');
-/* [font] 'Pretendard' */
-@import url('https://webfontworld.github.io/pretendard/Pretendard.css');
-
-:root{
+:root {
   /* size */
   font-size: 16px;
   --h1: 3.125rem; /* 50px */
@@ -20,100 +13,114 @@
 }
 
 /* reset */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   color: var(--textColor);
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
 }
-ul{
+
+ul {
   list-style: none;
 }
-a{
+
+a {
   color: inherit;
   text-decoration: none;
 }
-h1, 
-h2, 
-h3, 
-h4, 
-h5, 
-h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: inherit;
   font-weight: 600;
   line-height: 100%;
 }
-button{
+
+button {
   font-family: inherit;
   font-size: inherit;
   border: none;
   background-color: transparent;
   cursor: pointer;
 }
-img{
+
+img {
   width: 100%;
 }
 
 /* common */
-h1, 
-.h1{
+h1,
+.h1 {
   font-size: var(--h1);
   letter-spacing: -1.5px;
 }
-h2, 
-.h2{
+
+h2,
+.h2 {
   font-size: var(--h2);
   letter-spacing: -1.26px;
 }
-h3, 
-.h3{
+
+h3,
+.h3 {
   font-size: var(--h3);
   letter-spacing: -0.9px;
 }
-h4, 
-.h4{
+
+h4,
+.h4 {
   font-size: var(--h4);
   letter-spacing: -0.75px;
 }
-h5, 
-.h5{
+
+h5,
+.h5 {
   font-size: var(--h5);
   letter-spacing: -0.6px;
 }
-h6, 
-.h6{
+
+h6,
+.h6 {
   font-size: var(--h6);
   letter-spacing: -0.27px;
 }
-p{
+
+p {
   font-weight: 400;
   line-height: 175%;
   letter-spacing: 0.24px;
 }
-.main{}
-section{
+
+section {
   max-width: calc(100% - 400px);
   height: 100vh;
   margin: 0 0 0 auto;
   padding: 100px 45px;
   border: 5px solid #f00;
 }
-section h2{
+section h2 {
   margin-bottom: var(--h3);
 }
+
 .header nav .gnb li a,
 .heading,
 .skillList li h4,
-#contact > h2{
-  font-family: 'Oswald', 'Pretendard', sans-serif;
+#contact > h2 {
+  font-family: "Oswald", "Pretendard", sans-serif;
   text-transform: uppercase;
 }
+
 /* mobile */
-@media (max-width: 768px){
-  :root{
+@media (max-width: 768px) {
+  :root {
     /* size */
     font-size: 14px;
     --h1: 2.429rem; /* 34px */
@@ -123,9 +130,11 @@ section h2{
     --h5: 1.286rem; /* 18px */
     --h6: 1.143rem; /* 16px */
   }
-  section{
+  section {
     max-width: 100%;
     margin: 0;
     padding: calc(60px + var(--h4)) var(--h4) var(--h4);
   }
 }
+
+/*# sourceMappingURL=reset_common.css.map */
