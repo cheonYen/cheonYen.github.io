@@ -405,6 +405,9 @@
 /* hover style */
 @media (hover: hover) {
   /* about */
+  #about .contentsWrap:hover {
+    cursor: url(../img/test.png) -5 -5, progress;
+  }
   #about .contentsWrap:hover::before {
     right: -20%;
   }
