@@ -1,0 +1,142 @@
+@import "./mixin";
+
+/* common */
+nav,
+nav .gnb li a,
+nav .gnb li a::before,
+.socialBtn, 
+.headerCopy {
+  transition: .3s;
+}
+
+/* style */
+.header {
+  height: 100vh;
+  padding: $h4 0 $h4 $h1;
+  @include flexSb;
+  flex-direction: column;
+  position: fixed;
+  @include topLeft;
+  @include en;
+  z-index: 100;
+  .logo {
+    display: flex;
+    width: $h4;
+    height: $h4;
+    margin-bottom: $h4;
+  }
+  @include mobile {
+    width: 100%;
+    height: 50px;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 $h5Mobile;
+    .logo {
+      width: $h4Mobile;
+      height: $h4Mobile;
+      margin-bottom: 0;
+    }
+    .socialBtn {
+      top: calc(100vh - $h2Mobile * 3.5);
+    }
+    .headerCopy {
+      top: calc(100vh - $h2Mobile - 1rem);
+    }
+    .socialBtn,
+    .headerCopy,
+    nav {
+      width: 100%;
+      position: absolute;
+      left: 100%;
+      text-align: center;
+      transition: 0.3s;
+    }
+    &.open nav,
+    &.open .socialBtn,
+    &.open .headerCopy {
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+    }
+  }
+}
+nav {
+  margin: 0 0 auto;
+  .gnb li a {
+    margin-bottom: 1rem;
+    display: inline-block;
+    position: relative;
+    font-size: $p2;
+    letter-spacing: 0.08px;
+    font-weight: 400;
+    &::before {
+      content: "";
+      width: 0.8rem;
+      height: 0.8rem;
+      position: absolute;
+      top: 50%;
+      left: calc(100% + 0.3rem);
+      transform: translateY(calc(-50% - 1px));
+      background: url(../img/logo.svg) no-repeat;
+      opacity: 0;
+    }
+    &:hover,
+    &.active {
+      font-weight: $hWeight;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+  @include mobile {
+    height: 100vh;
+    padding: calc(50px + $h2Mobile) 0 $h2Mobile;
+    @include flexCc;
+    top: 0;
+    background-color: $backColor;
+    .gnb li a {
+      margin-bottom: 2.5rem;
+    }
+  }
+}
+.socialBtn {
+  width: fit-content;
+  font-size: $h4;
+  margin-bottom: 1rem;
+}
+.trigger {
+  position: relative;
+  display: none;
+  span {
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    background-color: $textColor;
+    &:nth-child(1) {
+      top: 0;
+    }
+    &:nth-child(2) {
+      @include centerY;
+    }
+    &:nth-child(3) {
+      bottom: 0;
+    }
+  }
+  @include mobile {
+    width: $h4Mobile;
+    height: 1.429rem;
+    display: block;
+    &.open span:nth-child(1) {
+      @include centerY;
+      transform: rotate(-45deg);
+    }
+    &.open span:nth-child(2) {
+      opacity: 0;
+    }
+    &.open span:nth-child(3) {
+      @include centerY;
+      bottom: auto;
+      transform: rotate(45deg);
+    }
+  }
+}

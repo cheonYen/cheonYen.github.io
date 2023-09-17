@@ -1,0 +1,192 @@
+@import "./variables";
+
+// reset
+@mixin reset {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// breakPoint
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}@mixin tablet {
+  @media (min-width: #{$mobile + 1}) and (max-width: #{$tablet}) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+// heading
+@mixin en {
+  font-family: "Poppins", sans-serif;
+  line-height: 100%;
+  letter-spacing: -0.27px;
+  text-transform: uppercase;
+  @include mobile {
+    letter-spacing: -0.21px;
+  }
+}
+@mixin h1En {
+  @include en;
+  font-size: $h1;
+  letter-spacing: -2px;
+  @include mobile {
+    font-size: $h1Mobile;
+    letter-spacing: -0.52px;
+  };
+}
+@mixin h2En {
+  @include en;
+  font-size: $h2;
+  letter-spacing: -1.4px;
+  @include mobile {
+    font-size: $h2Mobile;
+    letter-spacing: -0.42px;
+  };
+}
+@mixin h3En {
+  @include en;
+  font-size: $h3;
+  font-weight: $hWeight;
+  letter-spacing: -0.58px;
+  @include mobile {
+    font-size: $h3Mobile;
+    letter-spacing: -0.48px;
+  };
+}
+@mixin h4En {
+  @include en;
+  font-size: $h4;
+  letter-spacing: -0.45px;
+  @include mobile {
+    font-size: $h4Mobile;
+    letter-spacing: -0.36px;
+  };
+}
+@mixin h5En {
+  @include en;
+  font-size: $h5;
+  letter-spacing: -0.48px;
+  @include mobile {
+    font-size: $h5Mobile;
+    letter-spacing: -0.27px;
+  };
+}
+@mixin h6En {
+  @include en;
+  font-size: $h6;
+  letter-spacing: -0.36px;
+  @include mobile {
+    font-size: $h6Mobile;
+    letter-spacing: -0.24px;
+  };
+}
+@mixin kr {
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 185%;
+  letter-spacing: 0.08px;
+  @include mobile {
+    font-size: 14px;
+    line-height: 180%;
+    letter-spacing: -0.14px;
+  }
+}
+@mixin h1Kr {
+  font-size: $h2;
+  line-height: 125%;
+  letter-spacing: -2.1px;
+  @include mobile {
+    font-size: $h1Mobile;
+    letter-spacing: -1.56px;
+  };
+}
+@mixin h2Kr {
+  font-size: $h3;
+  line-height: 125%;
+  letter-spacing: -1.74px;
+  @include mobile {
+    font-size: $h2Mobile;
+    letter-spacing: -1.26px;
+  };
+}
+@mixin h3Kr {
+  font-size: $h4;
+  line-height: 125%;
+  letter-spacing: -0.84px;
+  @include mobile {
+    font-size: $h3Mobile;
+    line-height: 130%;
+    letter-spacing: -0.64px;
+  };
+}
+@mixin h4Kr {
+  font-size: $h5;
+  line-height: 130%;
+  letter-spacing: -0.64px;
+  @include mobile {
+    font-size: $h4Mobile;
+    letter-spacing: -0.24px;
+  };
+}
+@mixin h5Kr {
+  font-size: $h6;
+  line-height: 130%;
+  letter-spacing: -0.24px;
+  @include mobile {
+    font-size: $h5Mobile;
+    line-height: 135%;
+    letter-spacing: -0.27px;
+  };
+}
+@mixin h6Kr {
+  font-size: $p2;
+  line-height: 135%;
+  letter-spacing: -0.18px;
+  @include mobile {
+    font-size: 1.143rem;
+    letter-spacing: -0.16px;
+  };
+}
+
+// align
+@mixin flexSb {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flexCc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flexLc {
+  display: flex;
+  justify-content: center;
+}
+
+// position
+@mixin centerX {
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin centerY {
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin centerC {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin topLeft {
+  top: 0;
+  left: 0;
+}

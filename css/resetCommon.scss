@@ -1,0 +1,62 @@
+@import "./mixin";
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: $textColor;
+  background-color: $backColor;
+  @include kr;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include reset;
+  font-weight: $hWeight;
+}
+button {
+  @include reset;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+img {
+  width: 100%;
+}
+.section {
+  height: 100vh;
+  padding: $h4 $h4 $h4 350px;
+  border: 5px solid #f00;
+  @include mobile {
+    padding: 100px $h4Mobile;
+  }
+}
+h1{
+  @include h1En;
+}
+h2{}
+h3{
+  @include h3Kr;
+}
+h4{
+  @include h4Kr;
+}
+h5{
+  @include h5Kr;
+}
+h6{
+  @include h6Kr;
+}

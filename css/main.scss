@@ -1,0 +1,307 @@
+@import "./mixin";
+
+/* common */
+.heading {
+  margin-bottom: $h4;
+  @include mobile {
+    margin-bottom: $h4Mobile;
+  }
+  h2 {
+    @include h2En;
+  }
+}
+.contentsWrap,
+#mainProject .projectList {
+  height: calc(100% - $h2 - $h4);
+  border: 1px solid #000;
+}
+.skillList li img,
+.viewContainer .imgWrap,
+.viewContainer h4,
+.viewContainer p,
+.moreView,
+.linkWrap h4 a,
+.linkWrap h4 a .iconWrap img {
+  transition: .3s;
+}
+.main {
+  overflow: hidden;
+}
+
+/* intro */
+#intro {
+  @include  flexSb;
+  flex-direction: column;
+  p {
+    @include h1En;
+    font-weight: $lightWeight;
+    text-align: right;
+  }
+}
+
+/* about */
+#about .contentsWrap {
+  @include flexSb;
+  align-items: center;
+}
+.profileWrap {
+  width: 75%;
+  @include flexSb;
+  align-items: center;
+  border-radius: 20rem;
+  background-color: rgba($textColor, $alpha: 0.8);
+  padding: $h3;
+  .imgWrap {
+    width: 30%;
+    background-color: $backColor;
+    border-radius: 100%;
+  }
+  .desc {
+    width: 60%;
+    color: $mainColor;
+    h4 {
+      margin-bottom: $h5;
+      font-weight: $midWeight;
+      strong {
+        font-weight: $hWeight;
+      }
+    }
+  }
+}
+.recordWrap {
+  height: 100%;
+  h4 {
+    margin-bottom: $h6;
+    text-indent: -0.5rem;
+  }
+  .record {
+    height: calc(100% - $h4 - $h6);
+    li {
+      width: 100%;
+      height: 25%;
+      @include flexLc ;
+      flex-direction: column;
+      padding-left: $h6;
+      border-left: 1px solid $textColor;
+      position: relative;
+      &::before {
+        content: '';
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        background-color: $textColor;
+        position: absolute;
+        @include centerY;
+        left: calc(0% - 0.5rem);
+      }
+    }
+  }
+}
+
+/* skill */
+#skill .contentsWrap{
+  @include flexSb;
+  align-items: center;
+  padding: 0 $h4;
+}
+.viewContainer {
+  width: 50%;
+  .imgWrap {
+    width: clamp($h1, 35vw, 35%);
+    transform: translateX(-1rem);
+  }
+  h4 {
+    @include h4En;
+    text-transform: capitalize;
+    margin: $h4 0 1rem;
+  }
+}
+.skillList {
+  display: grid;
+  grid-template-columns: repeat(3, clamp($h3, 5vw, $h1));
+  gap: clamp(0.3rem, 1px, 0.8rem) clamp(0.5rem, 1vw, $h6);
+  li {
+    cursor: pointer;
+    &:hover img {
+      transform: scale(0.92) rotate(3deg);
+    }
+  }
+}
+
+/* mainProject */
+#mainProject {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 300%;
+  &::before {
+    content: '';
+    width: 100%;
+    height: 80vh;
+    background-color: $mainColor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .heading {
+    position: absolute;
+    top: $h4;
+    left: 350px;
+  }
+}
+.mainProjectLi {
+  padding: calc($h1 + $h4) $h4 $h4 350px;
+  position: relative;
+  .contentsWrap {
+    height: 100%;
+    @include flexSb;
+    align-items: center;
+    gap: $h2;
+    .imgWrap {
+      width: 50%;
+    }
+    .textWrap {
+      width: 50%;
+      .desc {
+        margin-bottom: $h4;
+        span:not(.badge) {
+          color: rgba($textColor, $alpha: 0.3);
+        }
+        h3 {
+          margin-bottom: $h6;
+        }
+        > div {
+          width: 60%;
+          margin: 0.3rem 0 $h6;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem 0.3rem;
+        }
+      }
+    }
+  }
+  &:nth-of-type(1)::before {
+    content: '';
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    bottom: -8rem;
+    right: -5rem;
+    background: url(../img/bgElement.png) no-repeat;
+    background-size: contain;
+  }
+}
+.badge {
+  padding: 0 0.8rem;
+  border-radius: $h6;
+  border: 1px solid $textColor;
+}
+.btnWrap {
+  display: flex;
+  gap: $p2;
+  .moreView {
+    @include flexSb;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem $p2;
+    border-radius: 0.5rem;
+    color: #fff;
+    background-color: $textColor;
+    .iconWrap {
+      width: $p2;
+      height: $p2;
+    }
+    &:hover {
+      transform: scale(0.95) rotate(3deg);
+    }
+  }
+}
+
+/* miniProject */
+#miniProject .contentsWrap {
+  @include  flexSb;
+  flex-direction: column;
+  .desc {
+    margin-left: 35%;
+    display: grid;
+    grid-template-columns: 1fr 4.5fr;
+    gap: $h6 0;
+  }
+}
+#miniProject .projectList {
+  @include  flexSb;
+  gap: $h5;
+  li {
+    width: 100%;
+    margin-top: 130px;
+    a {
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 1rem $h6;
+      border-radius: $h6;
+      color: #fff;
+      background-color: #222;
+      position: relative;
+      .imgWrap {
+        width: 60%;
+        position: absolute;
+        bottom: 50%;
+        right: $h6;
+      }
+    }
+  }
+}
+
+/* contact */
+#contact {
+  position: relative;
+  .contentsWrap {
+    @include flexLc;
+    flex-direction: column;
+    .heading h2 {
+      @include h1En;
+      text-align: center;
+    }
+  }
+  .copyright {
+    position: absolute;
+    top: calc(100% - $h4 - 1rem);
+    right: $h4;
+  }
+}
+.linkWrap {
+  margin-top: $h6;
+  @include flexCc;
+  gap: 1rem;
+  h4 {
+    font-weight: $midWeight;
+    a {
+      width: fit-content;
+      padding: 0.625rem 1rem;
+      border-radius: $h4;
+      border: 2px solid $textColor;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      .iconWrap {
+        width: $h5;
+        height: $h5;
+        overflow: hidden;
+        img {
+          width: 200%;
+          transform: translateX(-50%);
+        }
+      }
+      &:hover {
+        color: $backColor;
+        background-color: $textColor;
+        .iconWrap img {
+          transform: translate(0, -50%);
+        }
+      }
+    }
+  }
+}
