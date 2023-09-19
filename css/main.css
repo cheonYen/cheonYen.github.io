@@ -27,10 +27,22 @@
   }
 }
 
+#intro,
+#about,
+#skill {
+  background-color: #FFD646;
+}
+
 .contentsWrap,
 #mainProject .projectList {
   height: calc(100% - 4.375rem - 2.813rem);
   border: 1px solid #000;
+}
+@media (max-width: 768px) {
+  .contentsWrap,
+  #mainProject .projectList {
+    height: calc(100% - 3rem - 1.714rem);
+  }
 }
 
 .skillList li img,
@@ -43,16 +55,37 @@
   transition: 0.3s;
 }
 
+#intro,
+.contentsWrap,
+.profileWrap,
+.btnWrap .moreView,
+#miniProject .projectList {
+  display: flex;
+  justify-content: space-between;
+}
+
+#intro,
+.recordWrap .record li,
+#miniProject .contentsWrap,
+#miniProject .projectList li a,
+#contact .contentsWrap {
+  flex-direction: column;
+}
+
+#about .contentsWrap,
+.profileWrap,
+#skill .contentsWrap,
+.mainProjectLi .contentsWrap,
+.btnWrap .moreView,
+.linkWrap h4 a {
+  align-items: center;
+}
+
 .main {
   overflow: hidden;
 }
 
 /* intro */
-#intro {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
 #intro p {
   font-family: "Poppins", sans-serif;
   line-height: 100%;
@@ -70,23 +103,14 @@
 }
 @media (max-width: 768px) {
   #intro p {
-    font-size: 3.714rem;
+    font-size: clamp(48px, 1vw, 3.714rem);
     letter-spacing: -0.52px;
   }
 }
 
 /* about */
-#about .contentsWrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .profileWrap {
   width: 75%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 20rem;
   background-color: rgba(0, 0, 0, 0.8);
   padding: 3.625rem;
@@ -107,6 +131,25 @@
 .profileWrap .desc h4 strong {
   font-weight: 700;
 }
+@media (max-width: 768px) {
+  .profileWrap {
+    height: 100%;
+    padding: 0;
+    justify-content: flex-end;
+    background-color: transparent;
+  }
+  .profileWrap .imgWrap {
+    width: clamp(100px, 40vw, 500px);
+    height: clamp(100px, 40vw, 500px);
+    margin: auto 0;
+  }
+  .profileWrap .desc {
+    color: #000;
+  }
+  .profileWrap .desc h4 {
+    margin-bottom: 1rem;
+  }
+}
 
 .recordWrap {
   height: 100%;
@@ -123,7 +166,6 @@
   height: 25%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   padding-left: 1.5rem;
   border-left: 1px solid #000;
   position: relative;
@@ -142,10 +184,13 @@
 
 /* skill */
 #skill .contentsWrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0 2.813rem;
+}
+@media (max-width: 768px) {
+  #skill .contentsWrap {
+    padding: 0;
+    flex-direction: column-reverse;
+  }
 }
 
 .viewContainer {
@@ -185,8 +230,18 @@
 .skillList li {
   cursor: pointer;
 }
-.skillList li:hover img {
-  transform: scale(0.92) rotate(3deg);
+@media (min-width: 1024px) {
+  .skillList li:hover img {
+    transform: scale(0.92) rotate(3deg);
+  }
+}
+@media (max-width: 768px) {
+  .skillList {
+    width: 60%;
+    margin-top: 5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem 1rem;
+  }
 }
 
 /* mainProject */
@@ -211,6 +266,12 @@
   top: 2.813rem;
   left: 350px;
 }
+@media (max-width: 768px) {
+  #mainProject .heading {
+    top: 80px;
+    left: 1.714rem;
+  }
+}
 
 .mainProjectLi {
   padding: 9.063rem 2.813rem 2.813rem 350px;
@@ -218,9 +279,6 @@
 }
 .mainProjectLi .contentsWrap {
   height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 4.375rem;
 }
 .mainProjectLi .contentsWrap .imgWrap {
@@ -267,9 +325,6 @@
   gap: 1.125rem;
 }
 .btnWrap .moreView {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 1rem;
   padding: 0.8rem 1.125rem;
   border-radius: 0.5rem;
@@ -280,16 +335,13 @@
   width: 1.125rem;
   height: 1.125rem;
 }
-.btnWrap .moreView:hover {
-  transform: scale(0.95) rotate(3deg);
+@media (min-width: 1024px) {
+  .btnWrap .moreView:hover {
+    transform: scale(0.95) rotate(3deg);
+  }
 }
 
 /* miniProject */
-#miniProject .contentsWrap {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
 #miniProject .contentsWrap .desc {
   margin-left: 35%;
   display: grid;
@@ -298,8 +350,6 @@
 }
 
 #miniProject .projectList {
-  display: flex;
-  justify-content: space-between;
   gap: 2rem;
 }
 #miniProject .projectList li {
@@ -309,7 +359,6 @@
 #miniProject .projectList li a {
   height: 200px;
   display: flex;
-  flex-direction: column;
   justify-content: end;
   padding: 1rem 1.5rem;
   border-radius: 1.5rem;
@@ -323,6 +372,19 @@
   bottom: 50%;
   right: 1.5rem;
 }
+@media (max-width: 768px) {
+  #miniProject .projectList li {
+    margin-top: 0;
+  }
+  #miniProject .projectList li a .imgWrap {
+    width: 1.714rem;
+    height: 1.714rem;
+    bottom: auto;
+    top: 1rem;
+    right: 1rem;
+    border: 1px solid red;
+  }
+}
 
 /* contact */
 #contact {
@@ -331,7 +393,6 @@
 #contact .contentsWrap {
   display: flex;
   justify-content: center;
-  flex-direction: column;
 }
 #contact .contentsWrap .heading h2 {
   font-family: "Poppins", sans-serif;
@@ -349,7 +410,7 @@
 }
 @media (max-width: 768px) {
   #contact .contentsWrap .heading h2 {
-    font-size: 3.714rem;
+    font-size: clamp(48px, 1vw, 3.714rem);
     letter-spacing: -0.52px;
   }
 }
@@ -376,7 +437,6 @@
   border: 2px solid #000;
   display: flex;
   gap: 1rem;
-  align-items: center;
 }
 .linkWrap h4 a .iconWrap {
   width: 2rem;
@@ -387,12 +447,38 @@
   width: 200%;
   transform: translateX(-50%);
 }
-.linkWrap h4 a:hover {
-  color: #F5F3F0;
-  background-color: #000;
+@media (min-width: 1024px) {
+  .linkWrap h4 a:hover {
+    color: #F5F3F0;
+    background-color: #000;
+  }
+  .linkWrap h4 a:hover .iconWrap img {
+    transform: translate(0, -50%);
+  }
 }
-.linkWrap h4 a:hover .iconWrap img {
-  transform: translate(0, -50%);
+
+/* common responsive mobile */
+@media (max-width: 768px) {
+  .contentsWrap,
+  .profileWrap,
+  #miniProject .projectList {
+    flex-direction: column;
+  }
+  .profileWrap,
+  .profileWrap .desc,
+  .viewContainer {
+    width: 100%;
+  }
+  .recordWrap,
+  .viewContainer .imgWrap,
+  #miniProject .contentsWrap .desc {
+    display: none;
+  }
+  #miniProject .projectList,
+  #miniProject .projectList li,
+  #miniProject .projectList li a {
+    height: 100%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

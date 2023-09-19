@@ -63,7 +63,7 @@ img {
 }
 @media (max-width: 768px) {
   .section {
-    padding: 100px 1.714rem;
+    padding: 80px 1.714rem;
   }
 }
 
@@ -82,7 +82,7 @@ h1 {
 }
 @media (max-width: 768px) {
   h1 {
-    font-size: 3.714rem;
+    font-size: clamp(48px, 1vw, 3.714rem);
     letter-spacing: -0.52px;
   }
 }

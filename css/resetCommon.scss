@@ -41,7 +41,7 @@ img {
   padding: $h4 $h4 $h4 350px;
   border: 5px solid #f00;
   @include mobile {
-    padding: 100px $h4Mobile;
+    padding: 80px $h4Mobile;
   }
 }
 h1{

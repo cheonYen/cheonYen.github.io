@@ -38,7 +38,7 @@
   font-size: $h1;
   letter-spacing: -2px;
   @include mobile {
-    font-size: $h1Mobile;
+    font-size: clamp(48px, 1vw, $h1Mobile);
     letter-spacing: -0.52px;
   };
 }

@@ -10,10 +10,18 @@
     @include h2En;
   }
 }
+#intro, 
+#about,
+#skill {
+  background-color: $mainColor;
+}
 .contentsWrap,
 #mainProject .projectList {
   height: calc(100% - $h2 - $h4);
   border: 1px solid #000;
+  @include mobile {
+    height: calc(100% - $h2Mobile - $h4Mobile);
+  }
 }
 .skillList li img,
 .viewContainer .imgWrap,
@@ -24,14 +32,34 @@
 .linkWrap h4 a .iconWrap img {
   transition: .3s;
 }
+#intro,
+.contentsWrap,
+.profileWrap,
+.btnWrap .moreView,
+#miniProject .projectList {
+  @include  flexSb;
+}
+#intro,
+.recordWrap .record li,
+#miniProject .contentsWrap,
+#miniProject .projectList li a,
+#contact .contentsWrap {
+  flex-direction: column;
+}
+#about .contentsWrap,
+.profileWrap,
+#skill .contentsWrap,
+.mainProjectLi .contentsWrap,
+.btnWrap .moreView,
+.linkWrap h4 a {
+  align-items: center;
+}
 .main {
   overflow: hidden;
 }
 
 /* intro */
 #intro {
-  @include  flexSb;
-  flex-direction: column;
   p {
     @include h1En;
     font-weight: $lightWeight;
@@ -40,14 +68,8 @@
 }
 
 /* about */
-#about .contentsWrap {
-  @include flexSb;
-  align-items: center;
-}
 .profileWrap {
   width: 75%;
-  @include flexSb;
-  align-items: center;
   border-radius: 20rem;
   background-color: rgba($textColor, $alpha: 0.8);
   padding: $h3;
@@ -67,6 +89,23 @@
       }
     }
   }
+  @include mobile {
+    height: 100%;
+    padding: 0;
+    justify-content: flex-end;
+    background-color: transparent;
+    .imgWrap {
+      width: clamp(100px, 40vw, 500px);
+      height: clamp(100px, 40vw, 500px);
+      margin: auto 0;
+    }
+    .desc {
+      color: $textColor;
+      h4 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
 .recordWrap {
   height: 100%;
@@ -80,7 +119,6 @@
       width: 100%;
       height: 25%;
       @include flexLc ;
-      flex-direction: column;
       padding-left: $h6;
       border-left: 1px solid $textColor;
       position: relative;
@@ -99,10 +137,12 @@
 }
 
 /* skill */
-#skill .contentsWrap{
-  @include flexSb;
-  align-items: center;
+#skill .contentsWrap {
   padding: 0 $h4;
+  @include mobile {
+    padding: 0;
+    flex-direction: column-reverse;
+  }
 }
 .viewContainer {
   width: 50%;
@@ -122,9 +162,17 @@
   gap: clamp(0.3rem, 1px, 0.8rem) clamp(0.5rem, 1vw, $h6);
   li {
     cursor: pointer;
-    &:hover img {
-      transform: scale(0.92) rotate(3deg);
+    @include desktop {
+      &:hover img {
+        transform: scale(0.92) rotate(3deg);
+      }
     }
+  }
+  @include mobile {
+    width: 60%;
+    margin-top: 5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem 1rem;
   }
 }
 
@@ -149,14 +197,18 @@
     top: $h4;
     left: 350px;
   }
+  @include mobile {
+    .heading {
+      top: 80px;
+      left: $h4Mobile;
+    }
+  }
 }
 .mainProjectLi {
   padding: calc($h1 + $h4) $h4 $h4 350px;
   position: relative;
   .contentsWrap {
     height: 100%;
-    @include flexSb;
-    align-items: center;
     gap: $h2;
     .imgWrap {
       width: 50%;
@@ -201,8 +253,6 @@
   display: flex;
   gap: $p2;
   .moreView {
-    @include flexSb;
-    align-items: center;
     gap: 1rem;
     padding: 0.8rem $p2;
     border-radius: 0.5rem;
@@ -212,16 +262,16 @@
       width: $p2;
       height: $p2;
     }
-    &:hover {
-      transform: scale(0.95) rotate(3deg);
+    @include desktop {
+      &:hover {
+        transform: scale(0.95) rotate(3deg);
+      }
     }
   }
 }
 
 /* miniProject */
 #miniProject .contentsWrap {
-  @include  flexSb;
-  flex-direction: column;
   .desc {
     margin-left: 35%;
     display: grid;
@@ -230,7 +280,6 @@
   }
 }
 #miniProject .projectList {
-  @include  flexSb;
   gap: $h5;
   li {
     width: 100%;
@@ -238,7 +287,6 @@
     a {
       height: 200px;
       display: flex;
-      flex-direction: column;
       justify-content: end;
       padding: 1rem $h6;
       border-radius: $h6;
@@ -253,6 +301,21 @@
       }
     }
   }
+  @include mobile {
+    li {
+      margin-top: 0;
+      a {
+        .imgWrap {
+          width: $h4Mobile;
+          height: $h4Mobile;
+          bottom: auto;
+          top: 1rem;
+          right: 1rem;
+          border: 1px solid red;
+        }
+      }
+    }
+  }
 }
 
 /* contact */
@@ -260,7 +323,6 @@
   position: relative;
   .contentsWrap {
     @include flexLc;
-    flex-direction: column;
     .heading h2 {
       @include h1En;
       text-align: center;
@@ -285,7 +347,6 @@
       border: 2px solid $textColor;
       display: flex;
       gap: 1rem;
-      align-items: center;
       .iconWrap {
         width: $h5;
         height: $h5;
@@ -295,13 +356,39 @@
           transform: translateX(-50%);
         }
       }
-      &:hover {
-        color: $backColor;
-        background-color: $textColor;
-        .iconWrap img {
-          transform: translate(0, -50%);
+      @include desktop {
+        &:hover {
+          color: $backColor;
+          background-color: $textColor;
+          .iconWrap img {
+            transform: translate(0, -50%);
+          }
         }
       }
     }
+  }
+}
+
+/* common responsive mobile */
+@include mobile {
+  .contentsWrap,
+  .profileWrap,
+  #miniProject .projectList {
+    flex-direction: column;
+  }
+  .profileWrap,
+  .profileWrap .desc,
+  .viewContainer {
+    width: 100%;
+  }
+  .recordWrap,
+  .viewContainer .imgWrap,
+  #miniProject .contentsWrap .desc {
+    display: none;
+  }
+  #miniProject .projectList,
+  #miniProject .projectList li,
+  #miniProject .projectList li a {
+    height: 100%;
   }
 }
