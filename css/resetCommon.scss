@@ -60,3 +60,13 @@ h5{
 h6{
   @include h6Kr;
 }
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+body::-webkit-scrollbar-thumb {
+	background: $textColor;
+  border-radius: 1rem;
+}
+body::-webkit-scrollbar-track {
+	background: transparent;
+}

@@ -16,7 +16,7 @@
   background-color: $mainColor;
 }
 .contentsWrap,
-#mainProject .projectList {
+#project .projectList {
   height: calc(100% - $h2 - $h4);
   border: 1px solid #000;
   @include mobile {
@@ -49,14 +49,12 @@
 #about .contentsWrap,
 .profileWrap,
 #skill .contentsWrap,
-.mainProjectLi .contentsWrap,
+.projectLi .contentsWrap,
 .btnWrap .moreView,
 .linkWrap h4 a {
   align-items: center;
 }
-.main {
-  overflow: hidden;
-}
+.main {}
 
 /* intro */
 #intro {
@@ -176,12 +174,11 @@
   }
 }
 
-/* mainProject */
-#mainProject {
-  position: relative;
+/* project */
+#project {
   display: flex;
-  flex-wrap: nowrap;
-  width: 300%;
+  flex-direction: column;
+  position: relative;
   &::before {
     content: '';
     width: 100%;
@@ -193,9 +190,13 @@
     z-index: -1;
   }
   .heading {
-    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    position: sticky;
+    margin: 0;
     top: $h4;
     left: 350px;
+    z-index: 10;
   }
   @include mobile {
     .heading {
@@ -204,7 +205,7 @@
     }
   }
 }
-.mainProjectLi {
+.projectLi {
   padding: calc($h1 + $h4) $h4 $h4 350px;
   position: relative;
   .contentsWrap {
@@ -218,7 +219,7 @@
       .desc {
         margin-bottom: $h4;
         span:not(.badge) {
-          color: rgba($textColor, $alpha: 0.3);
+          color: rgba($textColor, $alpha: 0.4);
         }
         h3 {
           margin-bottom: $h6;
@@ -238,10 +239,36 @@
     width: 400px;
     height: 400px;
     position: absolute;
-    bottom: -8rem;
+    bottom: -10rem;
     right: -5rem;
     background: url(../img/bgElement1.png) no-repeat;
     background-size: contain;
+    z-index: -1;
+  }
+  @include mobile {
+    padding: 80px $h4Mobile;
+    .contentsWrap {
+      gap: $h4Mobile;
+      .imgWrap {
+        width: 70%;
+        margin: auto;
+      }
+      .textWrap .desc {
+        margin-bottom: $h1Mobile;
+        span:not(.badge) {
+          color: rgba($textColor, $alpha: 0.4);
+        }
+        h3 {
+          margin-bottom: $h6Mobile;
+        }
+      }
+    }
+    &:nth-of-type(1)::before {
+      width: clamp(210px, 40vw, 40vw);
+      height: clamp(210px, 40vw, 40vw);
+      bottom: -8rem;
+      right: -2rem;
+    }
   }
 }
 .badge {
@@ -268,9 +295,24 @@
       }
     }
   }
+  @include mobile {
+    justify-content: center;
+    gap: $h5Mobile;
+    .moreView {
+      width: 50%;
+      padding: 0.8rem $h5Mobile;
+      .iconWrap {
+        width: $h5Mobile;
+        height: $h5Mobile;
+      }
+    }
+  }
 }
 
 /* miniProject */
+#miniProject {
+  display: none;
+}
 #miniProject .contentsWrap {
   .desc {
     margin-left: 35%;
@@ -291,7 +333,7 @@
       padding: 1rem $h6;
       border-radius: $h6;
       color: #fff;
-      background-color: #222;
+      background-color: $darkColor;
       position: relative;
       .imgWrap {
         width: 60%;
@@ -303,16 +345,59 @@
   }
   @include mobile {
     li {
+      border-radius: $h6Mobile;
+      overflow: hidden;
       margin-top: 0;
       a {
+        border-radius: 0;
         .imgWrap {
           width: $h4Mobile;
           height: $h4Mobile;
           bottom: auto;
           top: 1rem;
           right: 1rem;
-          border: 1px solid red;
+          overflow: hidden;
+          img {
+            width: 200%;
+            transform: translateY(-50%);
+          }
         }
+      }
+      &:nth-child(1) a {
+        background: 
+          linear-gradient(
+            65deg, 
+            $darkColor 41.81%, 
+            rgba($darkColor, $alpha: 0) 97.62%
+          ), 
+          url(../img/mini01.png) no-repeat, 
+          $darkColor;
+      }
+      &:nth-child(2) a {
+        background: 
+          linear-gradient(
+            65deg, 
+            $darkColor 41.81%, 
+            rgba($darkColor, $alpha: 0) 97.62%
+          ), 
+          url(../img/mini02.png) no-repeat, 
+          $darkColor;
+      }
+      &:nth-child(3) a {
+        background: 
+          linear-gradient(
+            65deg, 
+            $darkColor 41.81%, 
+            rgba($darkColor, $alpha: 0) 97.62%
+          ), 
+          url(../img/mini03.png) no-repeat, 
+          $darkColor;
+      }
+      &:nth-child(1) a,
+      &:nth-child(2) a,
+      &:nth-child(3) a {
+        background-size: 85%;
+        background-position: 103% -0.2rem;
       }
     }
   }
@@ -332,13 +417,18 @@
     position: absolute;
     top: calc(100% - $h4 - 1rem);
     right: $h4;
+    @include mobile {
+      right: 0;
+      text-align: center;
+    }
   }
 }
 .linkWrap {
-  margin-top: $h6;
   @include flexCc;
   gap: 1rem;
   h4 {
+    @include en;
+    text-transform: lowercase;
     font-weight: $midWeight;
     a {
       width: fit-content;
@@ -367,22 +457,42 @@
       }
     }
   }
+  @include mobile {     
+    margin-top: $h6Mobile;
+    h4 {
+      font-size: clamp(1rem, 4.5vw, $h4Mobile);
+    a {
+      margin: auto;
+      padding: 0.3rem 1rem;
+      .iconWrap {
+        width:  clamp($h5Mobile, 4vw, $h4Mobile);
+        height: clamp($h5Mobile, 4vw, $h4Mobile);
+      }
+    }
+    }
+  }
 }
 
 /* common responsive mobile */
 @include mobile {
   .contentsWrap,
   .profileWrap,
-  #miniProject .projectList {
+  #miniProject .projectList,
+  .linkWrap {
     flex-direction: column;
   }
   .profileWrap,
   .profileWrap .desc,
-  .viewContainer {
+  .viewContainer,
+  .projectLi .contentsWrap .textWrap,
+  .linkWrap,
+  .linkWrap h4,
+  .copyright {
     width: 100%;
   }
   .recordWrap,
   .viewContainer .imgWrap,
+  .projectLi .contentsWrap .textWrap .desc div,
   #miniProject .contentsWrap .desc {
     display: none;
   }

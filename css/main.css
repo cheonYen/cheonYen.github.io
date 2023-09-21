@@ -34,13 +34,13 @@
 }
 
 .contentsWrap,
-#mainProject .projectList {
+#project .projectList {
   height: calc(100% - 4.375rem - 2.813rem);
   border: 1px solid #000;
 }
 @media (max-width: 768px) {
   .contentsWrap,
-  #mainProject .projectList {
+  #project .projectList {
     height: calc(100% - 3rem - 1.714rem);
   }
 }
@@ -75,14 +75,10 @@
 #about .contentsWrap,
 .profileWrap,
 #skill .contentsWrap,
-.mainProjectLi .contentsWrap,
+.projectLi .contentsWrap,
 .btnWrap .moreView,
 .linkWrap h4 a {
   align-items: center;
-}
-
-.main {
-  overflow: hidden;
 }
 
 /* intro */
@@ -244,14 +240,13 @@
   }
 }
 
-/* mainProject */
-#mainProject {
-  position: relative;
+/* project */
+#project {
   display: flex;
-  flex-wrap: nowrap;
-  width: 300%;
+  flex-direction: column;
+  position: relative;
 }
-#mainProject::before {
+#project::before {
   content: "";
   width: 100%;
   height: 80vh;
@@ -261,57 +256,89 @@
   left: 0;
   z-index: -1;
 }
-#mainProject .heading {
-  position: absolute;
+#project .heading {
+  width: fit-content;
+  height: fit-content;
+  position: sticky;
+  margin: 0;
   top: 2.813rem;
   left: 350px;
+  z-index: 10;
 }
 @media (max-width: 768px) {
-  #mainProject .heading {
+  #project .heading {
     top: 80px;
     left: 1.714rem;
   }
 }
 
-.mainProjectLi {
+.projectLi {
   padding: 9.063rem 2.813rem 2.813rem 350px;
   position: relative;
 }
-.mainProjectLi .contentsWrap {
+.projectLi .contentsWrap {
   height: 100%;
   gap: 4.375rem;
 }
-.mainProjectLi .contentsWrap .imgWrap {
+.projectLi .contentsWrap .imgWrap {
   width: 50%;
 }
-.mainProjectLi .contentsWrap .textWrap {
+.projectLi .contentsWrap .textWrap {
   width: 50%;
 }
-.mainProjectLi .contentsWrap .textWrap .desc {
+.projectLi .contentsWrap .textWrap .desc {
   margin-bottom: 2.813rem;
 }
-.mainProjectLi .contentsWrap .textWrap .desc span:not(.badge) {
-  color: rgba(0, 0, 0, 0.3);
+.projectLi .contentsWrap .textWrap .desc span:not(.badge) {
+  color: rgba(0, 0, 0, 0.4);
 }
-.mainProjectLi .contentsWrap .textWrap .desc h3 {
+.projectLi .contentsWrap .textWrap .desc h3 {
   margin-bottom: 1.5rem;
 }
-.mainProjectLi .contentsWrap .textWrap .desc > div {
+.projectLi .contentsWrap .textWrap .desc > div {
   width: 60%;
   margin: 0.3rem 0 1.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 0.3rem;
 }
-.mainProjectLi:nth-of-type(1)::before {
+.projectLi:nth-of-type(1)::before {
   content: "";
   width: 400px;
   height: 400px;
   position: absolute;
-  bottom: -8rem;
+  bottom: -10rem;
   right: -5rem;
   background: url(../img/bgElement1.png) no-repeat;
   background-size: contain;
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .projectLi {
+    padding: 80px 1.714rem;
+  }
+  .projectLi .contentsWrap {
+    gap: 1.714rem;
+  }
+  .projectLi .contentsWrap .imgWrap {
+    width: 70%;
+    margin: auto;
+  }
+  .projectLi .contentsWrap .textWrap .desc {
+    margin-bottom: 3.714rem;
+  }
+  .projectLi .contentsWrap .textWrap .desc span:not(.badge) {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  .projectLi .contentsWrap .textWrap .desc h3 {
+    margin-bottom: 1.143rem;
+  }
+  .projectLi:nth-of-type(1)::before {
+    width: clamp(210px, 40vw, 40vw);
+    height: clamp(210px, 40vw, 40vw);
+    bottom: -8rem;
+    right: -2rem;
+  }
 }
 
 .badge {
@@ -340,8 +367,26 @@
     transform: scale(0.95) rotate(3deg);
   }
 }
+@media (max-width: 768px) {
+  .btnWrap {
+    justify-content: center;
+    gap: 1.286rem;
+  }
+  .btnWrap .moreView {
+    width: 50%;
+    padding: 0.8rem 1.286rem;
+  }
+  .btnWrap .moreView .iconWrap {
+    width: 1.286rem;
+    height: 1.286rem;
+  }
+}
 
 /* miniProject */
+#miniProject {
+  display: none;
+}
+
 #miniProject .contentsWrap .desc {
   margin-left: 35%;
   display: grid;
@@ -374,7 +419,12 @@
 }
 @media (max-width: 768px) {
   #miniProject .projectList li {
+    border-radius: 1.143rem;
+    overflow: hidden;
     margin-top: 0;
+  }
+  #miniProject .projectList li a {
+    border-radius: 0;
   }
   #miniProject .projectList li a .imgWrap {
     width: 1.714rem;
@@ -382,7 +432,24 @@
     bottom: auto;
     top: 1rem;
     right: 1rem;
-    border: 1px solid red;
+    overflow: hidden;
+  }
+  #miniProject .projectList li a .imgWrap img {
+    width: 200%;
+    transform: translateY(-50%);
+  }
+  #miniProject .projectList li:nth-child(1) a {
+    background: linear-gradient(65deg, #222 41.81%, rgba(34, 34, 34, 0) 97.62%), url(../img/mini01.png) no-repeat, #222;
+  }
+  #miniProject .projectList li:nth-child(2) a {
+    background: linear-gradient(65deg, #222 41.81%, rgba(34, 34, 34, 0) 97.62%), url(../img/mini02.png) no-repeat, #222;
+  }
+  #miniProject .projectList li:nth-child(3) a {
+    background: linear-gradient(65deg, #222 41.81%, rgba(34, 34, 34, 0) 97.62%), url(../img/mini03.png) no-repeat, #222;
+  }
+  #miniProject .projectList li:nth-child(1) a, #miniProject .projectList li:nth-child(2) a, #miniProject .projectList li:nth-child(3) a {
+    background-size: 85%;
+    background-position: 103% -0.2rem;
   }
 }
 
@@ -419,16 +486,31 @@
   top: calc(100% - 2.813rem - 1rem);
   right: 2.813rem;
 }
+@media (max-width: 768px) {
+  #contact .copyright {
+    right: 0;
+    text-align: center;
+  }
+}
 
 .linkWrap {
-  margin-top: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
 }
 .linkWrap h4 {
+  font-family: "Poppins", sans-serif;
+  line-height: 100%;
+  letter-spacing: -0.27px;
+  text-transform: uppercase;
+  text-transform: lowercase;
   font-weight: 500;
+}
+@media (max-width: 768px) {
+  .linkWrap h4 {
+    letter-spacing: -0.21px;
+  }
 }
 .linkWrap h4 a {
   width: fit-content;
@@ -456,21 +538,43 @@
     transform: translate(0, -50%);
   }
 }
+@media (max-width: 768px) {
+  .linkWrap {
+    margin-top: 1.143rem;
+  }
+  .linkWrap h4 {
+    font-size: clamp(1rem, 4.5vw, 1.714rem);
+  }
+  .linkWrap h4 a {
+    margin: auto;
+    padding: 0.3rem 1rem;
+  }
+  .linkWrap h4 a .iconWrap {
+    width: clamp(1.286rem, 4vw, 1.714rem);
+    height: clamp(1.286rem, 4vw, 1.714rem);
+  }
+}
 
 /* common responsive mobile */
 @media (max-width: 768px) {
   .contentsWrap,
   .profileWrap,
-  #miniProject .projectList {
+  #miniProject .projectList,
+  .linkWrap {
     flex-direction: column;
   }
   .profileWrap,
   .profileWrap .desc,
-  .viewContainer {
+  .viewContainer,
+  .projectLi .contentsWrap .textWrap,
+  .linkWrap,
+  .linkWrap h4,
+  .copyright {
     width: 100%;
   }
   .recordWrap,
   .viewContainer .imgWrap,
+  .projectLi .contentsWrap .textWrap .desc div,
   #miniProject .contentsWrap .desc {
     display: none;
   }

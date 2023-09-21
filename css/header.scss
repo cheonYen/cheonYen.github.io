@@ -93,7 +93,6 @@ nav {
     padding: calc(50px + $h2Mobile) 0 $h2Mobile;
     @include flexCc;
     top: 0;
-    background-color: $backColor;
     .gnb li a {
       margin-bottom: 2.5rem;
     }
