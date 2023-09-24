@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>test</h1>
+  <section id="project">
+
+  </section>
+</body>
+<script>
+
+let projects = [
+  {
+    id: 1,
+    title: '서대문구 충현동 주민센터 리뉴얼',
+    date: '2023/05/01 ~ 2023/06/07',
+    stack: ['HTML5', 'CSS', 'JavaScript', 'jQuery', 'VS Code', 'Figma'],
+    desc: '무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지.',
+    imgSrc: 'img/main01.png',
+    gitHub: 'https://github.com/cheonYen/Chunghyeon-dongCenter_renewal',
+    demo: 'https://cheonyen.github.io/Chunghyeon-dongCenter_renewal',
+  },
+  {
+    id: 2,
+    title: '소이베베 리뉴얼',
+    date: '2023/05/01 ~ 2023/06/07',
+    stack: ['HTML5', 'CSS', 'JavaScript', 'jQuery', 'VS Code', 'Figma'],
+    desc: '무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지.',
+    imgSrc: 'img/main02.png',
+    gitHub: 'https://github.com/cheonYen/soybebe_renewal',
+    demo: 'https://cheonyen.github.io/soybebe_renewal',
+  },
+  {
+    id: 3,
+    title: '폭스바겐 리뉴얼',
+    date: '2023/05/01 ~ 2023/06/07',
+    stack: ['HTML5', 'CSS', 'JavaScript', 'jQuery', 'VS Code', 'Figma'],
+    desc: '무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지.',
+    imgSrc: 'img/main03.png',
+    gitHub: 'https://github.com/hyunseok9898/VolksWagen_Renewal',
+    demo: 'https://hyunseok9898.github.io/VolksWagen_Renewal',
+  },
+];
+
+let projectWrap = document.querySelector('#project');
+let projectSection = document.createElement('section');
+projectSection.className = 'contents'; // 클래스명을 설정합니다.'
+
+let imgWrap = document.createElement('div');
+imgWrap.className = 'imgWrap';
+let img = document.createElement('img');
+img.src = projects[0].imgSrc;
+img.alt = projects[0].title + ' 이미지';
+
+let textWrap = document.createElement('div');
+textWrap.className = 'textWrap';
+textWrap.innerHTML = projects[0].title;
+
+imgWrap.appendChild(img);
+projectSection.appendChild(imgWrap);
+projectSection.appendChild(textWrap);
+projectWrap.appendChild(projectSection);
+
+</script>
+</html>

@@ -49,7 +49,7 @@ button {
   font-weight: inherit;
   border: none;
   background-color: transparent;
-  cursor: pointer;
+  cursor: url(../img/cursor.png), 0 0, pointer;
 }
 
 img {
