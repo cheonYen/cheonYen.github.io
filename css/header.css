@@ -10,7 +10,7 @@ nav .gnb li a::before,
 /* style */
 .header {
   height: 100vh;
-  padding: 2.813rem 0 2.813rem 6.25rem;
+  padding: 2.813rem 0 2.813rem 2.813rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;

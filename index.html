@@ -51,14 +51,14 @@
       </div>
     </header>
     <main class="main">
-      <section id="intro" class="section">
+      <section id="intro" class="section content">
         <div class="heading">
           <h1>Cheon Yeeun's <br/>Portfolio</h1>
         </div>
         <p>Hello, I’m yen<br/> and Web-Publisher</p>
       </section>
       <!-- //intro -->
-      <section id="about" class="section" >
+      <section id="about" class="section content" >
         <div class="heading">
           <h2>About</h2>
         </div>
@@ -103,7 +103,7 @@
         </div>
       </section>
       <!-- //about -->
-      <section id="skill" class="section">
+      <section id="skill" class="section content">
         <div class="heading">
           <h2>Skill</h2>
         </div>
@@ -121,61 +121,13 @@
         </div>
       </section>
       <!-- //skill -->
-      <section id="project">
+      <div id="project" class="content">
         <div class="heading">
           <h2>Project</h2>
         </div>
-      </section>
+      </div>
       <!-- //mainProject -->
-      <section id="miniProject" class="section">
-        <div class="heading">
-          <h2>Mini Project</h2>
-        </div>
-        <div class="contentsWrap">
-          <ul class="projectList">
-            <li>
-              <a href="">
-                <h4>미니 프로젝트명</h4>
-                <p class="date">2023/05/01 ~ 2023/06/07</p>
-                <div class="imgWrap">
-                  <img src="img/mini01.png" alt="Mini Project 01">
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <h4>미니 프로젝트명</h4>
-                <p class="date">2023/05/01 ~ 2023/06/07</p>
-                <div class="imgWrap">
-                  <img src="img/mini02.png" alt="Mini Project 02">
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <h4>미니 프로젝트명</h4>
-                <p class="date">2023/05/01 ~ 2023/06/07</p>
-                <div class="imgWrap">
-                  <img src="img/mini03.png" alt="Mini Project 03">
-                </div>
-              </a>
-            </li>
-          </ul>
-          <div class="desc">
-            <span><h6>사용 툴</h6></span>
-            <div class="badgeWrap">
-              <span class="badge">Figma</span>
-              <span class="badge">VS Code</span>
-            </div>
-            <span><h6>프로젝트 소개</h6></span>
-            <p>
-              무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지.
-            </p>
-          </div>
-        </div>
-      </section>
-      <!-- //miniProject -->
-      <section id="contact" class="section">
+      <section id="contact" class="section content">
         <div class="contentsWrap">
           <div class="heading">
             <h2>
@@ -202,9 +154,23 @@
           </div>
         </div>
         <p class="copyright">&copy; 2023 Cheon Yeeun All Rights Reserved.</p>
+        <div class="colorBg">
+          <img src="img/smileFace.png" alt="Smile Face" class="smile">
+          <img src="img/palette.png" alt="Palette" class="palette">
+          <img src="img/pop.png" alt="Pop" class="pop">
+          <img src="img/ribbon.png" alt="Ribbon" class="ribbon">
+          <img src="img/bear.png" alt="Bear" class="bear">
+          <img src="img/twinkle.png" alt="Twinkle" class="twinkle">
+          <img src="img/winkFace.png" alt="Wink Face" class="wink">
+          <svg id="circle" viewBox="0 0 100 100">
+            <circle class="st0" cx="50" cy="50" r="50"/>
+          </svg>
+        </div>
       </section>
       <!-- //contact -->
     </main>
+  </div>
+  </div>
   </div>
   <!-- [CDN] -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
@@ -215,6 +181,6 @@
   <script src="js/main.js"></script>
   <script src="js/skill.js"></script>
   <script src="js/project.js"></script>
-  <!-- <script src="js/gsapCustom.js"></script> -->
+  <script src="js/gsapCustom.js"></script>
 </body>
 </html>

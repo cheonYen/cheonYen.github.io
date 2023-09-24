@@ -16,7 +16,7 @@ let projects = [
   {
     id: 2,
     title: '소이베베 리뉴얼',
-    date: '2023/05/01 ~ 2023/06/07',
+    date: '2023/06/20 ~ 2023/07/28',
     stack: ['HTML5', 'CSS', 'JavaScript', 'jQuery', 'VS Code', 'Figma'],
     desc: '무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지 어느 부분을 맡았는지. 간략하게 설명한다. 무슨 무슨 프로젝트이며, 무슨 기능을 썼는지.',
     imgSrc: 'img/main02.png',
@@ -48,7 +48,6 @@ let projectWrap = document.querySelector('#project');
 for (let project of projects) {
   let projectSection = document.createElement('section');
   projectSection.className = 'projectLi section';
-
   let contentsWrap = document.createElement('div');
   contentsWrap.className = 'contentsWrap';
 
@@ -56,7 +55,7 @@ for (let project of projects) {
   imgWrap.className = 'imgWrap';
   let img = document.createElement('img');
   img.src = project.imgSrc;
-  img.alt = project.title + 'image';
+  img.alt = project.title + ' 이미지';
 
   let textWrap = document.createElement('div');
   textWrap.className = 'textWrap';
@@ -95,10 +94,31 @@ for (let project of projects) {
     ${btnWrapDiv.outerHTML}
   `;
 
-  
   imgWrap.appendChild(img);
   contentsWrap.appendChild(imgWrap);
   contentsWrap.appendChild(textWrap);
   projectSection.appendChild(contentsWrap);
   projectWrap.appendChild(projectSection);
 }
+
+let ProjectLiImg = document.querySelectorAll('.projectLi .contentsWrap .imgWrap img');
+let isMobile = window.matchMedia("(max-width: 768px)");
+
+function updateImages() {
+  if(!isMobile.matches) {
+    for(let a = 0; a < ProjectLiImg.length; a++) {
+      ProjectLiImg[a].setAttribute('src', projects[a].imgSrc);
+      ProjectLiImg[a].setAttribute('alt', projects[a].title + ' 이미지');
+    }
+  } else{
+    for(let a = 0; a < ProjectLiImg.length; a++) {
+      ProjectLiImg[a].setAttribute('src', `img/arrowLeftToRightDiagonal.svg`);
+      ProjectLiImg[a].setAttribute('alt', 'Diagonal Arrow Left To Right');
+    }
+  }
+}
+
+window.onload = () => {
+  updateImages(); 
+}
+window.addEventListener('resize', updateImages); 
